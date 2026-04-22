@@ -1,10 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ContentBot — посты за 2 минуты</title>
+
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#ff5c00">
+
+<!-- PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1403441134581587');
+fbq('track', 'PageView');
+</script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 16px 28px;
+  background: #ff5c00;
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.block {
+  margin-top: 40px;
+}
+
+.small {
+  font-size: 14px;
+  color: #666;
+}
+</style>
+
 </head>
+
 <body>
-    <h1>Сайт работает</h1>
-    И вроде все деплоится!
+
+<!-- LANDING -->
+
+<div id="landing" class="container">
+
+  <h1>Ты всё ещё пишешь посты сам?</h1>
+
+  <div class="hero">
+    <img src="/images/hero.jpg" alt="">
+  </div>
+
+  <p>Пост за 2 минуты вместо часа работы.<br>Просто напиши тему.</p>
+
+  <a href="/go/" class="btn" onclick="fbq('track','InitiateCheckout')">
+    Получить доступ — 15€
+  </a>
+
+  <div class="block">
+    <h2>Как это работает</h2>
+    <p>
+      1. Пишешь тему<br>
+      2. Получаешь текст<br>
+      3. Используешь
+    </p>
+  </div>
+
+  <div class="block">
+    <a href="/pdf/contentbot-guide.pdf">Открыть инструкцию</a>
+  </div>
+
+</div>
+
+<!-- PAID -->
+
+<div id="paid" class="container" style="display:none;">
+
+  <h1>Доступ открыт</h1>
+
+  <p>ContentBot готов. Можно начинать.</p>
+
+  <a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0" class="btn">
+    Открыть ContentBot
+  </a>
+
+  <div class="block">
+    <a href="/pdf/contentbot-guide.pdf">Инструкция</a><br><br>
+    <a href="/pdf/contentbot-examples.pdf">Примеры и разбор</a>
+  </div>
+
+  <div class="block small">
+    Добавь на экран телефона для быстрого доступа
+  </div>
+
+  <div class="block small">
+    Вопросы: <br>
+    <a href="https://t.me/VPuziryov">@VPuziryov</a>
+  </div>
+
+</div>
+
+<!-- PAID LOGIC -->
+
+<script>
+const isPaid = window.location.search.includes('paid=1');
+
+if (isPaid) {
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('paid').style.display = 'block';
+  fbq('track', 'Purchase');
+}
+</script>
+
+<!-- SERVICE WORKER -->
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js');
+}
+</script>
+
 </body>
 </html>
