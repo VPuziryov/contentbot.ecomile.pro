@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContentBot</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      margin: 10px 0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: #ff5c00;
+      color: white;
+    }
+
+    .secondary {
+      background: #111;
+      color: white;
+    }
+
+    .box {
+      background: #fff;
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 20px;
+      text-align: left;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .small {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>ContentBot</h1>
+  <p>Пост за 2 минуты. Просто вставь тему.</p>
+
+  <!-- ОСНОВНОЕ ДЕЙСТВИЕ -->
+  <a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0" target="_blank" class="btn primary">
+    Открыть ContentBot
+  </a>
+
+  <!-- БЫСТРЫЙ СТАРТ -->
+  <button class="btn secondary" onclick="copyPrompt()">
+    Скопировать стартовую команду
+  </button>
+
+  <!-- ПРИМЕР -->
+  <div class="box">
+    <b>Старт:</b><br><br>
+
+    Напиши пост для Instagram на тему: [твоя тема].<br>
+    Стиль — уверенный, без воды.<br>
+    В конце — мягкий призыв к действию.
+  </div>
+
+  <!-- ПОДСКАЗКА -->
+  <div class="small">
+    Вставь тему → получи пост → опубликуй
+  </div>
+
+</div>
+
+<script>
+function copyPrompt() {
+  const text = `Напиши пост для Instagram на тему: [твоя тема].
+Стиль — уверенный, без воды.
+В конце — мягкий призыв к действию.`;
+
+  navigator.clipboard.writeText(text);
+  alert("Скопировано");
+}
+</script>
+
+</body>
+</html>
