@@ -89,7 +89,7 @@ button{cursor:pointer}
 </div>
 
 <div class="block">
-<a href="/pdf/contentbot-guide.pdf?v=2" target="_blank" rel="noopener">Открыть инструкцию</a>
+<a href="/pdf/contentbot-guide.pdf?v=2">Открыть инструкцию</a>
 </div>
 
 <div class="block">
@@ -192,7 +192,7 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 </div>
 </div>
 
-<div id="whereBlock" style="display:none;margin-top:20px;font-size:14px;color:#555">
+<div style="margin-top:20px;font-size:14px;color:#555">
 <b>Где найти ContentBot:</b><br><br>
 
 📱 Android — список приложений<br>
@@ -203,9 +203,9 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 </div>
 
 <div style="margin-top:20px">
-<a href="/pdf/contentbot-guide.pdf?v=2">Инструкция</a><br><br>
-<a href="/pdf/contentbot-examples.pdf?v=3">Примеры и разбор</a>
-</div>
+<a href="/pdf/contentbot-guide.pdf?v=2" target="_blank" rel="noopener">Инструкция</a>
+<br><br>
+<a href="/pdf/contentbot-examples.pdf?v=3" target="_blank" rel="noopener">Примеры и разбор</a></div>
 
 <div style="margin-top:20px">
 <a href="https://t.me/VPuziryov">@VPuziryov</a>
@@ -248,7 +248,6 @@ const installBtn = document.getElementById('installBtn');
 const iosHint = document.getElementById('iosHint');
 const manualHint = document.getElementById('manualHint');
 const installedMsg = document.getElementById('installedMsg');
-const whereBlock = document.getElementById('whereBlock');
 
 setTimeout(() => {
   if (installBox) installBox.style.display = 'block';
@@ -267,7 +266,6 @@ installBtn?.addEventListener('click', async () => {
     if (outcome === 'accepted') {
       installedMsg.style.display = 'block';
       installBtn.style.display = 'none';
-      whereBlock.style.display = 'block';
     } else {
       manualHint.style.display = 'block';
     }
@@ -281,7 +279,6 @@ installBtn?.addEventListener('click', async () => {
 window.addEventListener('appinstalled', () => {
   installedMsg.style.display = 'block';
   installBtn.style.display = 'none';
-  whereBlock.style.display = 'block';
 });
 
 function isIOS() {
@@ -300,7 +297,6 @@ if (isIOS() && !isStandalone()) {
 if (isStandalone()) {
   installedMsg.style.display = 'block';
   installBtn.style.display = 'none';
-  whereBlock.style.display = 'block';
 }
 </script>
 
