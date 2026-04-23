@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ContentBot — посты за 2 минуты</title>
+<title>ContentBot™ — инструмент для постов через GPT</title>
 
 <!-- PWA -->
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#ff5c00">
 
-<!-- PIXEL -->
+<!-- Facebook Pixel -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
@@ -23,54 +23,76 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 
 fbq('init', '1403441134581587');
 fbq('track', 'PageView');
+
+function trackCheckoutClick() {
+  fbq('track', 'InitiateCheckout', {
+    value: 15,
+    currency: 'EUR'
+  });
+}
 </script>
 
 <style>
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  background: #f5f5f5;
+  font-family: system-ui, sans-serif;
+  background: #f5f6fa;
+  color: #111;
   text-align: center;
 }
-
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
+header {
+  padding: 16px;
+  font-weight: bold;
+  font-size: 1.4rem;
 }
-
+.hero {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin: 10px auto;
+  max-width: 480px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+}
 .hero img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 12px;
 }
-
-h1 {
-  font-size: 28px;
-  margin-top: 20px;
+.cta {
+  margin: 18px 0;
 }
-
-p {
-  font-size: 16px;
-}
-
-.btn {
+.cta a {
   display: inline-block;
-  margin-top: 20px;
-  padding: 16px 28px;
   background: #ff5c00;
   color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 14px 28px;
   border-radius: 12px;
   text-decoration: none;
-  font-weight: bold;
 }
-
-.block {
-  margin-top: 40px;
-}
-
-.small {
-  font-size: 14px;
+.cta small {
+  display: block;
+  margin-top: 6px;
   color: #666;
+  font-size: 0.9rem;
+}
+.block {
+  margin: 22px auto;
+  max-width: 520px;
+  padding: 0 16px;
+}
+.box {
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  margin-top: 12px;
+  text-align: left;
+}
+footer {
+  margin: 20px;
+  font-size: 0.9rem;
+  color: #777;
 }
 </style>
 
@@ -80,64 +102,103 @@ p {
 
 <!-- LANDING -->
 
-<div id="landing" class="container">
+<div id="landing">
 
-  <h1>Ты всё ещё пишешь посты сам?</h1>
+<header>ContentBot™ — инструмент для написания постов через GPT</header>
 
-  <div class="hero">
-    <img src="/images/hero.jpg" alt="">
+<div class="hero">
+  <img src="/images/hero.jpg" alt="ContentBot">
+</div>
+
+<div class="block">
+  <div class="box" style="text-align:center;">
+    Открывается как отдельный инструмент — можно добавить на экран телефона
   </div>
+</div>
 
-  <p>Пост за 2 минуты вместо часа работы.<br>Просто напиши тему.</p>
+<div class="cta">
+  <a href="/go/" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
+  <small>Разовый платёж · Без подписки</small>
+</div>
 
-  <a href="/go/" class="btn" onclick="fbq('track','InitiateCheckout')">
-    Получить доступ — 15€
-  </a>
-
-  <div class="block">
-    <h2>Как это работает</h2>
-    <p>
-      1. Пишешь тему<br>
-      2. Получаешь текст<br>
-      3. Используешь
-    </p>
+<div class="block">
+  <strong>Что ты получаешь</strong>
+  <div class="box">
+    • доступ к ContentBot<br>
+    • инструмент генерации постов<br>
+    • структуру поста<br>
+    • примеры<br>
+    • инструкцию
   </div>
+</div>
 
-  <div class="block">
-    <a href="/pdf/contentbot-guide.pdf">Открыть инструкцию</a>
+<div class="block">
+  <strong>Как это работает</strong>
+  <div class="box">
+    1. Пишешь тему<br>
+    2. Получаешь текст<br>
+    3. Публикуешь
   </div>
+</div>
+
+<div class="block">
+  <strong>Пример результата</strong>
+  <div class="box">
+    <b>ПЕРВЫЕ клиенты — страшно, но можно</b><br><br>
+    Я просто написал, чем могу помочь.<br><br>
+    Через неделю — заявки.
+  </div>
+</div>
+
+<div class="block">
+  <strong>Инструкция + примеры</strong>
+  <div class="box">
+    <a href="/pdf/contentbot-guide.pdf" target="_blank">Открыть PDF</a>
+  </div>
+</div>
+
+<div class="cta">
+  <a href="/go/" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
+</div>
+
+<footer>
+  Платёж через Stripe — безопасно<br><br>
+  <a href="https://t.me/VPuziryov">@VPuziryov</a>
+</footer>
 
 </div>
 
 <!-- PAID -->
 
-<div id="paid" class="container" style="display:none;">
+<div id="paid" style="display:none;">
 
-  <h1>Доступ открыт</h1>
+<div style="max-width:600px;margin:auto;padding:20px;">
 
-  <p>ContentBot готов. Можно начинать.</p>
+<h1>Доступ открыт</h1>
 
-  <a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0" class="btn">
-    Открыть ContentBot
-  </a>
+<p>ContentBot готов. Можно начинать.</p>
 
-  <div class="block">
-    <a href="/pdf/contentbot-guide.pdf">Инструкция</a><br><br>
-    <a href="/pdf/contentbot-examples.pdf">Примеры и разбор</a>
-  </div>
+<a href="ТВОЯ_ССЫЛКА_АГЕНТА"
+style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;border-radius:12px;text-decoration:none;font-weight:bold;">
+Открыть ContentBot
+</a>
 
-  <div class="block small">
-    Добавь на экран телефона для быстрого доступа
-  </div>
+<div style="margin-top:30px">
+<a href="/pdf/contentbot-guide.pdf">Инструкция</a><br><br>
+<a href="/pdf/contentbot-examples.pdf">Примеры и разбор</a>
+</div>
 
-  <div class="block small">
-    Вопросы: <br>
-    <a href="https://t.me/VPuziryov">@VPuziryov</a>
-  </div>
+<div style="margin-top:30px;font-size:14px;color:#666">
+Добавь на экран телефона для быстрого доступа
+</div>
+
+<div style="margin-top:20px">
+<a href="https://t.me/VPuziryov">@VPuziryov</a>
+</div>
 
 </div>
 
-<!-- PAID LOGIC -->
+</div>
 
 <script>
 const isPaid = window.location.search.includes('paid=1');
@@ -149,8 +210,7 @@ if (isPaid) {
 }
 </script>
 
-<!-- SERVICE WORKER -->
-
+<!-- Service Worker -->
 <script>
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js');
