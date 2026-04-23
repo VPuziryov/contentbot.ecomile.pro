@@ -3,11 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Переход к оплате</title>
 
 <script>
-window.location.href = "https://buy.stripe.com/dRmfZg6e0cdxcWq1pR6Na06";
+window.onload = function() {
+  setTimeout(function() {
+    window.location.href = "https://buy.stripe.com/dRmfZg6e0cdxcWq1pR6Na06";
+  }, 800);
+};
 </script>
 
+<style>
+body {
+  font-family: system-ui;
+  text-align: center;
+  padding: 40px;
+  background: #f5f6fa;
+}
+a {
+  display: inline-block;
+  margin-top: 20px;
+  background: #ff5c00;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+
 </head>
-<body></body>
+<body>
+
+<h2>Переход к оплате…</h2>
+
+<p>Если не открылось — нажмите ниже</p>
+
+<a href="https://buy.stripe.com/dRmfZg6e0cdxcWq1pR6Na06">
+Перейти к оплате
+</a>
+
+</body>
 </html>
