@@ -6,9 +6,11 @@
 
 <title>ContentBot™ — пост за 2 минуты</title>
 
+<!-- PWA -->
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#ff5c00">
 
+<!-- Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){
 if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -77,7 +79,7 @@ style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;bord
 Открыть ContentBot
 </a>
 
-<!-- PWA INSTALL -->
+<!-- PWA -->
 <div id="pwa-install-box" style="display:none;margin-top:30px">
 
 <div style="background:#fff;padding:16px;border-radius:14px">
@@ -95,14 +97,18 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 2. “На экран Домой”
 </div>
 
+<div id="manualHint" style="display:none;margin-top:15px;font-size:13px;color:#777">
+Если кнопка не появилась — открой меню браузера и выбери “Добавить на главный экран”
+</div>
+
 <div id="installedMsg" style="display:none;margin-top:15px;color:green">
-✔ Установлено
+✔ Установлено. Найдите ContentBot на экране телефона
 </div>
 
 </div>
 </div>
 
-<!-- WHERE TO FIND -->
+<!-- WHERE -->
 <div style="margin-top:20px;font-size:14px;color:#555">
 
 <b>Где найти ContentBot:</b><br><br>
@@ -140,26 +146,38 @@ let deferredPrompt;
 const installBox = document.getElementById('pwa-install-box');
 const installBtn = document.getElementById('installBtn');
 const iosHint = document.getElementById('iosHint');
+const manualHint = document.getElementById('manualHint');
 const installedMsg = document.getElementById('installedMsg');
 
+// всегда показываем блок
+setTimeout(() => {
+  if (installBox) installBox.style.display = 'block';
+}, 1200);
+
+// chrome
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  if (installBox) installBox.style.display = 'block';
 });
 
+// кнопка
 installBtn?.addEventListener('click', async () => {
-  if (!deferredPrompt) return;
 
-  deferredPrompt.prompt();
-  const choice = await deferredPrompt.userChoice;
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const choice = await deferredPrompt.userChoice;
 
-  if (choice.outcome === 'accepted') {
-    installedMsg.style.display = 'block';
-    installBtn.style.display = 'none';
+    if (choice.outcome === 'accepted') {
+      installedMsg.style.display = 'block';
+      installBtn.style.display = 'none';
+    }
+
+  } else {
+    manualHint.style.display = 'block';
   }
 });
 
+// ios
 function isIOS() {
   return /iphone|ipad|ipod/i.test(navigator.userAgent);
 }
@@ -169,13 +187,12 @@ function isStandalone() {
 }
 
 if (isIOS() && !isStandalone()) {
-  if (installBox) installBox.style.display = 'block';
   iosHint.style.display = 'block';
   installBtn.style.display = 'none';
 }
 
+// уже установлен
 if (isStandalone()) {
-  if (installBox) installBox.style.display = 'block';
   installedMsg.style.display = 'block';
   installBtn.style.display = 'none';
 }
