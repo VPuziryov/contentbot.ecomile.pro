@@ -6,6 +6,7 @@
 
 <title>ContentBot™ — пост за 2 минуты</title>
 
+<!-- PWA -->
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#ff5c00">
 
@@ -35,6 +36,7 @@ header{padding:16px;font-weight:bold;font-size:1.4rem}
 .hero img{width:100%;border-radius:12px}
 .cta{margin:18px 0}
 .cta a{display:inline-block;background:#ff5c00;color:#fff;font-weight:bold;font-size:1.2rem;padding:14px 28px;border-radius:12px;text-decoration:none}
+.cta small{display:block;margin-top:6px;color:#666;font-size:.9rem}
 .block{margin:22px auto;max-width:520px;padding:0 16px}
 .box{background:#fff;padding:18px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.04);margin-top:12px;text-align:left}
 footer{margin:20px;font-size:.9rem;color:#777}
@@ -45,8 +47,8 @@ button{cursor:pointer}
 
 <body>
 
-<!-- LANDING -->
 <div id="landing">
+
 <header>Пост за 2 минуты вместо часа</header>
 
 <div class="hero">
@@ -55,28 +57,92 @@ button{cursor:pointer}
 
 <div class="block">
 <div class="box" style="text-align:center;">
-Устали тратить час на один пост?<br><br>
-Просто напиши тему — ContentBot сделает текст
+Просто напиши тему — ContentBot сделает текст<br><br>
+Открывается как отдельный инструмент — можно добавить на экран телефона
 </div>
 </div>
 
 <div class="cta">
 <a href="/go/?v=2" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
+<small>Разовый платёж · Без подписки<br>Доступ откроется сразу после оплаты</small>
+</div>
+
+<div class="block">
+<strong>Что ты получаешь</strong>
+<div class="box">
+Ты просто пишешь тему — получаешь готовый пост<br><br>
+• доступ к ContentBot<br>
+• генерация постов через GPT<br>
+• структура поста (заголовок → смысл → CTA)<br>
+• примеры<br>
+• инструкция
 </div>
 </div>
 
+<div class="block">
+<strong>Как это работает</strong>
+<div class="box">
+1. Пишешь тему<br>
+2. Получаешь текст<br>
+3. Публикуешь
+</div>
+</div>
+
+<div class="block">
+<a href="/pdf/contentbot-guide.pdf?v=2">Открыть инструкцию</a>
+</div>
+
+<div class="block">
+<strong>Вот такие тексты он пишет:</strong>
+
+<div class="box">
+<b>ПЕРВЫЕ КЛИЕНТЫ — страшно, стыдно, НО МОЖНО!</b><br><br>
+Я просто написал, чем могу быть полезен.<br>
+Без сайта. Без упаковки.<br><br>
+Через неделю — 3 заявки.<br>
+Через месяц — очередь.<br><br>
+Хочешь клиентов?<br>
+Скажи миру, чем ты полезен.
+</div>
+
+<div class="box">
+<b>НЕ СМЕЙ ПРОДАВАТЬ!</b><br><br>
+Именно так звучит страх.<br><br>
+Ты откладываешь пост.<br>
+Боишься “впарить”.<br><br>
+Но правда простая:<br><br>
+продажи — это забота.<br><br>
+Когда ты объясняешь — люди сами хотят купить.
+</div>
+
+</div>
+
+<div class="cta">
+<a href="/go/?v=2" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
+</div>
+
+<footer>
+Платёж через Stripe — безопасно<br><br>
+Автор — Виталий Пузырёв<br><br>
+<a href="https://t.me/VPuziryov">@VPuziryov</a>
+</footer>
+
+</div>
+
 <!-- PAID -->
+
 <div id="paid" style="display:none;">
 <div style="max-width:600px;margin:auto;padding:20px">
 
 <h1>Доступ открыт</h1>
+
+<p>ContentBot готов. Можно начинать.</p>
 
 <a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0"
 style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;border-radius:12px;text-decoration:none;font-weight:bold;">
 Открыть ContentBot
 </a>
 
-<!-- USE NOW -->
 <div style="margin-top:20px;font-size:14px;color:#555;line-height:1.6">
 <b>Что сделать прямо сейчас:</b><br><br>
 1. Открой ContentBot<br>
@@ -84,8 +150,7 @@ style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;bord
 3. Получи первый текст за 2 минуты
 </div>
 
-<!-- START PROMPT -->
-<div style="margin-top:20px;background:#fff;padding:16px;border-radius:14px;max-width:520px;margin-left:auto;margin-right:auto;text-align:left">
+<div style="margin-top:20px;background:#fff;padding:16px;border-radius:14px;text-align:left">
 <b>Стартовая команда:</b><br><br>
 <span id="starterPrompt">Напиши пост для Instagram на тему: [твоя тема].<br>
 Стиль — уверенный, без воды.<br>
@@ -97,9 +162,7 @@ style="margin-top:12px;padding:12px 20px;border:none;border-radius:10px;backgrou
 Скопировать стартовую команду
 </button>
 
-<!-- PWA -->
 <div id="pwa-install-box" style="display:none;margin-top:30px">
-
 <div style="background:#fff;padding:16px;border-radius:14px">
 
 <b>Сделай как приложение</b><br><br>
@@ -125,9 +188,7 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 </div>
 </div>
 
-<!-- WHERE -->
 <div style="margin-top:20px;font-size:14px;color:#555">
-
 <b>Где найти ContentBot:</b><br><br>
 
 📱 Android — список приложений<br>
@@ -135,16 +196,9 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 💻 ПК — Пуск → ContentBot<br><br>
 
 👉 Открой его сейчас и закрепи
-
 </div>
 
-<!-- KEEP USING -->
-<div style="margin-top:20px;font-size:14px;color:#555;line-height:1.6">
-Используй ContentBot сейчас один раз и закрепи его на экране — потом он не потеряется.
-</div>
-
-<!-- PDF SECONDARY -->
-<div style="margin-top:30px">
+<div style="margin-top:20px">
 <a href="/pdf/contentbot-guide.pdf?v=2">Инструкция</a><br><br>
 <a href="/pdf/contentbot-examples.pdf?v=3">Примеры и разбор</a>
 </div>
@@ -160,15 +214,15 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 const isPaid = window.location.search.includes('paid=1');
 
 if (isPaid) {
-document.getElementById('landing').style.display='none';
-document.getElementById('paid').style.display='block';
-fbq('track','Purchase');
+  document.getElementById('landing').style.display='none';
+  document.getElementById('paid').style.display='block';
+  fbq('track','Purchase');
 }
 </script>
 
 <script>
 if ('serviceWorker' in navigator) {
-navigator.serviceWorker.register('/service-worker.js');
+  navigator.serviceWorker.register('/service-worker.js');
 }
 </script>
 
@@ -191,23 +245,18 @@ const iosHint = document.getElementById('iosHint');
 const manualHint = document.getElementById('manualHint');
 const installedMsg = document.getElementById('installedMsg');
 
-// всегда показываем блок
 setTimeout(() => {
   if (installBox) installBox.style.display = 'block';
 }, 1200);
 
-// ловим событие установки
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
 });
 
-// кнопка установки
 installBtn?.addEventListener('click', async () => {
-
   if (deferredPrompt) {
     deferredPrompt.prompt();
-
     const { outcome } = await deferredPrompt.userChoice;
 
     if (outcome === 'accepted') {
@@ -221,16 +270,13 @@ installBtn?.addEventListener('click', async () => {
   } else {
     manualHint.style.display = 'block';
   }
-
 });
 
-// подтверждение факта установки
 window.addEventListener('appinstalled', () => {
   installedMsg.style.display = 'block';
   installBtn.style.display = 'none';
 });
 
-// iOS
 function isIOS() {
   return /iphone|ipad|ipod/i.test(navigator.userAgent);
 }
