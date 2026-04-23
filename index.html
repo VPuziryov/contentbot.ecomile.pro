@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ContentBot™ — инструмент для постов через GPT</title>
+<title>ContentBot™ — пост за 2 минуты</title>
 
 <!-- PWA -->
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#ff5c00">
 
-<!-- Facebook Pixel -->
+<!-- Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){
 if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,146 +24,106 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1403441134581587');
 fbq('track', 'PageView');
 
-function trackCheckoutClick() {
-  fbq('track', 'InitiateCheckout', {
-    value: 15,
-    currency: 'EUR'
-  });
+function trackCheckoutClick(){
+  fbq('track','InitiateCheckout',{value:15,currency:'EUR'});
 }
 </script>
 
 <style>
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f5f6fa;
-  color: #111;
-  text-align: center;
-}
-header {
-  padding: 16px;
-  font-weight: bold;
-  font-size: 1.4rem;
-}
-.hero {
-  background: white;
-  padding: 20px;
-  border-radius: 16px;
-  margin: 10px auto;
-  max-width: 480px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-}
-.hero img {
-  width: 100%;
-  border-radius: 12px;
-}
-.cta {
-  margin: 18px 0;
-}
-.cta a {
-  display: inline-block;
-  background: #ff5c00;
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 14px 28px;
-  border-radius: 12px;
-  text-decoration: none;
-}
-.cta small {
-  display: block;
-  margin-top: 6px;
-  color: #666;
-  font-size: 0.9rem;
-}
-.block {
-  margin: 22px auto;
-  max-width: 520px;
-  padding: 0 16px;
-}
-.box {
-  background: white;
-  padding: 18px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  margin-top: 12px;
-  text-align: left;
-}
-footer {
-  margin: 20px;
-  font-size: 0.9rem;
-  color: #777;
-}
+body{margin:0;font-family:system-ui;background:#f5f6fa;text-align:center}
+header{padding:16px;font-weight:bold;font-size:1.4rem}
+.hero{background:#fff;padding:20px;border-radius:16px;margin:10px auto;max-width:480px;box-shadow:0 6px 16px rgba(0,0,0,.05)}
+.hero img{width:100%;border-radius:12px}
+.cta{margin:18px 0}
+.cta a{display:inline-block;background:#ff5c00;color:#fff;font-weight:bold;font-size:1.2rem;padding:14px 28px;border-radius:12px;text-decoration:none}
+.cta small{display:block;margin-top:6px;color:#666;font-size:.9rem}
+.block{margin:22px auto;max-width:520px;padding:0 16px}
+.box{background:#fff;padding:18px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.04);margin-top:12px;text-align:left}
+footer{margin:20px;font-size:.9rem;color:#777}
 </style>
 
 </head>
 
 <body>
 
-<!-- LANDING -->
-
 <div id="landing">
 
-<header>ContentBot™ — инструмент для написания постов через GPT</header>
+<header>Пост за 2 минуты вместо часа</header>
 
 <div class="hero">
-  <img src="/images/hero.jpg" alt="ContentBot">
+<img src="/images/hero.jpg">
 </div>
 
 <div class="block">
-  <div class="box" style="text-align:center;">
-    Открывается как отдельный инструмент — можно добавить на экран телефона
-  </div>
+<div class="box" style="text-align:center;">
+Просто напиши тему — ContentBot сделает текст<br><br>
+Открывается как отдельный инструмент — можно добавить на экран телефона
+</div>
 </div>
 
 <div class="cta">
-  <a href="/go/" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
-  <small>Разовый платёж · Без подписки</small>
+<a href="/go/" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
+<small>Разовый платёж · Без подписки<br>Доступ откроется сразу после оплаты</small>
 </div>
 
 <div class="block">
-  <strong>Что ты получаешь</strong>
-  <div class="box">
-    • доступ к ContentBot<br>
-    • инструмент генерации постов<br>
-    • структуру поста<br>
-    • примеры<br>
-    • инструкцию
-  </div>
+<strong>Что ты получаешь</strong>
+<div class="box">
+Ты просто пишешь тему — получаешь готовый пост<br><br>
+• доступ к ContentBot<br>
+• генерация постов через GPT<br>
+• структура поста (заголовок → смысл → CTA)<br>
+• примеры<br>
+• инструкция
+</div>
 </div>
 
 <div class="block">
-  <strong>Как это работает</strong>
-  <div class="box">
-    1. Пишешь тему<br>
-    2. Получаешь текст<br>
-    3. Публикуешь
-  </div>
+<strong>Как это работает</strong>
+<div class="box">
+1. Пишешь тему<br>
+2. Получаешь текст<br>
+3. Публикуешь
+</div>
 </div>
 
 <div class="block">
-  <strong>Пример результата</strong>
-  <div class="box">
-    <b>ПЕРВЫЕ клиенты — страшно, но можно</b><br><br>
-    Я просто написал, чем могу помочь.<br><br>
-    Через неделю — заявки.
-  </div>
+<a href="/pdf/contentbot-guide.pdf?v=2">Открыть инструкцию</a>
 </div>
 
 <div class="block">
-  <strong>Инструкция + примеры</strong>
-  <div class="box">
-    <a href="/pdf/contentbot-guide.pdf?v=2" target="_blank">Открыть PDF</a>
-  </div>
+<strong>Вот такие тексты он пишет:</strong>
+
+<div class="box">
+<b>ПЕРВЫЕ КЛИЕНТЫ — страшно, стыдно, НО МОЖНО!</b><br><br>
+Я просто написал, чем могу быть полезен.<br>
+Без сайта. Без упаковки.<br><br>
+Через неделю — 3 заявки.<br>
+Через месяц — очередь.<br><br>
+Хочешь клиентов?<br>
+Скажи миру, чем ты полезен.
+</div>
+
+<div class="box">
+<b>НЕ СМЕЙ ПРОДАВАТЬ!</b><br><br>
+Именно так звучит страх.<br><br>
+Ты откладываешь пост.<br>
+Боишься “впарить”.<br><br>
+Но правда простая:<br><br>
+продажи — это забота.<br><br>
+Когда ты объясняешь — люди сами хотят купить.
+</div>
+
 </div>
 
 <div class="cta">
-  <a href="/go/" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
+<a href="/go/" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
 </div>
 
 <footer>
-  Платёж через Stripe — безопасно<br><br>
-  <a href="https://t.me/VPuziryov">@VPuziryov</a>
+Платёж через Stripe — безопасно<br><br>
+Автор — Виталий Пузырёв<br><br>
+<a href="https://t.me/VPuziryov">@VPuziryov</a>
 </footer>
 
 </div>
@@ -171,21 +131,19 @@ footer {
 <!-- PAID -->
 
 <div id="paid" style="display:none;">
-
-<div style="max-width:600px;margin:auto;padding:20px;">
+<div style="max-width:600px;margin:auto;padding:20px">
 
 <h1>Доступ открыт</h1>
-
 <p>ContentBot готов. Можно начинать.</p>
 
-<a href="ТВОЯ_ССЫЛКА_АГЕНТА"
+<a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0"
 style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;border-radius:12px;text-decoration:none;font-weight:bold;">
 Открыть ContentBot
 </a>
 
 <div style="margin-top:30px">
 <a href="/pdf/contentbot-guide.pdf?v=2">Инструкция</a><br><br>
-<a href="/pdf/contentbot-examples.pdf?v=2">Примеры и разбор</a>
+<a href="/pdf/contentbot-examples.pdf">Примеры и разбор</a>
 </div>
 
 <div style="margin-top:30px;font-size:14px;color:#666">
@@ -197,23 +155,21 @@ style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;bord
 </div>
 
 </div>
-
 </div>
 
 <script>
 const isPaid = window.location.search.includes('paid=1');
 
 if (isPaid) {
-  document.getElementById('landing').style.display = 'none';
-  document.getElementById('paid').style.display = 'block';
-  fbq('track', 'Purchase');
+document.getElementById('landing').style.display='none';
+document.getElementById('paid').style.display='block';
+fbq('track','Purchase');
 }
 </script>
 
-<!-- Service Worker -->
 <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js');
+navigator.serviceWorker.register('/service-worker.js');
 }
 </script>
 
