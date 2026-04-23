@@ -247,9 +247,19 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 const isPaid = window.location.search.includes('paid=1');
 
 if (isPaid) {
-  document.getElementById('landing').style.display='none';
-  document.getElementById('paid').style.display='block';
-  fbq('track','Purchase');
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('paid').style.display = 'block';
+
+  if (!localStorage.getItem('purchaseTracked_ContentBot')) {
+    fbq('track', 'Purchase', {
+      value: 15,
+      currency: 'EUR',
+      content_name: 'ContentBot',
+      content_type: 'product'
+    });
+
+    localStorage.setItem('purchaseTracked_ContentBot', '1');
+  }
 }
 </script>
 
