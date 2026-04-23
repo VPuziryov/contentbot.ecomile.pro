@@ -6,11 +6,9 @@
 
 <title>ContentBot™ — пост за 2 минуты</title>
 
-<!-- PWA -->
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#ff5c00">
 
-<!-- Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){
 if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -36,7 +34,6 @@ header{padding:16px;font-weight:bold;font-size:1.4rem}
 .hero img{width:100%;border-radius:12px}
 .cta{margin:18px 0}
 .cta a{display:inline-block;background:#ff5c00;color:#fff;font-weight:bold;font-size:1.2rem;padding:14px 28px;border-radius:12px;text-decoration:none}
-.cta small{display:block;margin-top:6px;color:#666;font-size:.9rem}
 .block{margin:22px auto;max-width:520px;padding:0 16px}
 .box{background:#fff;padding:18px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.04);margin-top:12px;text-align:left}
 footer{margin:20px;font-size:.9rem;color:#777}
@@ -65,68 +62,7 @@ button{cursor:pointer}
 
 <div class="cta">
 <a href="/go/?v=2" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
-<small>Разовый платёж · Без подписки<br>Доступ откроется сразу после оплаты</small>
 </div>
-
-<div class="block">
-<strong>Что ты получаешь</strong>
-<div class="box">
-Ты просто пишешь тему — получаешь готовый пост<br><br>
-• доступ к ContentBot<br>
-• генерация постов через GPT<br>
-• структура поста (заголовок → смысл → CTA)<br>
-• примеры<br>
-• инструкция
-</div>
-</div>
-
-<div class="block">
-<strong>Как это работает</strong>
-<div class="box">
-1. Пишешь тему<br>
-2. Получаешь текст<br>
-3. Публикуешь
-</div>
-</div>
-
-<div class="block">
-<a href="/pdf/contentbot-guide.pdf?v=2">Открыть инструкцию</a>
-</div>
-
-<div class="block">
-<strong>Вот такие тексты он пишет:</strong>
-
-<div class="box">
-<b>ПЕРВЫЕ КЛИЕНТЫ — страшно, стыдно, НО МОЖНО!</b><br><br>
-Я просто написал, чем могу быть полезен.<br>
-Без сайта. Без упаковки.<br><br>
-Через неделю — 3 заявки.<br>
-Через месяц — очередь.<br><br>
-Хочешь клиентов?<br>
-Скажи миру, чем ты полезен.
-</div>
-
-<div class="box">
-<b>НЕ СМЕЙ ПРОДАВАТЬ!</b><br><br>
-Именно так звучит страх.<br><br>
-Ты откладываешь пост.<br>
-Боишься “впарить”.<br><br>
-Но правда простая:<br><br>
-продажи — это забота.<br><br>
-Когда ты объясняешь — люди сами хотят купить.
-</div>
-
-</div>
-
-<div class="cta">
-<a href="/go/?v=2" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
-</div>
-
-<footer>
-Платёж через Stripe — безопасно<br><br>
-Автор — Виталий Пузырёв<br><br>
-<a href="https://t.me/VPuziryov">@VPuziryov</a>
-</footer>
 
 </div>
 
@@ -135,35 +71,48 @@ button{cursor:pointer}
 <div style="max-width:600px;margin:auto;padding:20px">
 
 <h1>Доступ открыт</h1>
-<p>ContentBot готов. Можно начинать.</p>
 
 <a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0"
 style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;border-radius:12px;text-decoration:none;font-weight:bold;">
 Открыть ContentBot
 </a>
 
-<!-- PWA БЛОК -->
-<div id="pwa-install-box" style="display:none;margin-top:25px">
+<!-- PWA INSTALL -->
+<div id="pwa-install-box" style="display:none;margin-top:30px">
+
+<div style="background:#fff;padding:16px;border-radius:14px">
+
+<b>Сделай как приложение</b><br><br>
 
 <button id="installBtn"
-style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#fff;font-weight:bold;">
+style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#fff;">
 Установить ContentBot
 </button>
 
-<div id="iosHint" style="display:none;margin-top:15px;font-size:14px;color:#555;line-height:1.5">
-📱 Чтобы добавить на экран:<br><br>
-Нажмите “Поделиться” → “На экран Домой”
+<div id="iosHint" style="display:none;margin-top:15px;font-size:14px;color:#555">
+📱 iPhone:<br><br>
+1. Нажмите “Поделиться”<br>
+2. “На экран Домой”
+</div>
+
+<div id="installedMsg" style="display:none;margin-top:15px;color:green">
+✔ Установлено
 </div>
 
 </div>
-
-<div style="margin-top:30px">
-<a href="/pdf/contentbot-guide.pdf?v=2">Инструкция</a><br><br>
-<a href="/pdf/contentbot-examples.pdf?v=3">Примеры и разбор</a>
 </div>
 
-<div style="margin-top:20px">
-<a href="https://t.me/VPuziryov">@VPuziryov</a>
+<!-- WHERE TO FIND -->
+<div style="margin-top:20px;font-size:14px;color:#555">
+
+<b>Где найти ContentBot:</b><br><br>
+
+📱 Android — список приложений<br>
+🍎 iPhone — главный экран<br>
+💻 ПК — Пуск → ContentBot<br><br>
+
+👉 Открой его сейчас и закрепи
+
 </div>
 
 </div>
@@ -179,20 +128,19 @@ fbq('track','Purchase');
 }
 </script>
 
-<!-- Service Worker -->
 <script>
 if ('serviceWorker' in navigator) {
 navigator.serviceWorker.register('/service-worker.js');
 }
 </script>
 
-<!-- PWA LOGIC -->
 <script>
 let deferredPrompt;
 
 const installBox = document.getElementById('pwa-install-box');
 const installBtn = document.getElementById('installBtn');
 const iosHint = document.getElementById('iosHint');
+const installedMsg = document.getElementById('installedMsg');
 
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
@@ -204,23 +152,31 @@ installBtn?.addEventListener('click', async () => {
   if (!deferredPrompt) return;
 
   deferredPrompt.prompt();
-  await deferredPrompt.userChoice;
+  const choice = await deferredPrompt.userChoice;
 
-  deferredPrompt = null;
-  installBox.style.display = 'none';
+  if (choice.outcome === 'accepted') {
+    installedMsg.style.display = 'block';
+    installBtn.style.display = 'none';
+  }
 });
 
 function isIOS() {
   return /iphone|ipad|ipod/i.test(navigator.userAgent);
 }
 
-function isInStandaloneMode() {
-  return ('standalone' in window.navigator) && window.navigator.standalone;
+function isStandalone() {
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
 }
 
-if (isIOS() && !isInStandaloneMode()) {
+if (isIOS() && !isStandalone()) {
   if (installBox) installBox.style.display = 'block';
   iosHint.style.display = 'block';
+  installBtn.style.display = 'none';
+}
+
+if (isStandalone()) {
+  if (installBox) installBox.style.display = 'block';
+  installedMsg.style.display = 'block';
   installBtn.style.display = 'none';
 }
 </script>
