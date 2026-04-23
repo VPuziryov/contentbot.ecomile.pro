@@ -6,7 +6,6 @@
 
 <title>ContentBot™ — пост за 2 минуты</title>
 
-<!-- PWA -->
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#ff5c00">
 
@@ -48,7 +47,6 @@ button{cursor:pointer}
 
 <!-- LANDING -->
 <div id="landing">
-
 <header>Пост за 2 минуты вместо часа</header>
 
 <div class="hero">
@@ -65,7 +63,6 @@ button{cursor:pointer}
 <div class="cta">
 <a href="/go/?v=2" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
 </div>
-
 </div>
 
 <!-- PAID -->
@@ -93,16 +90,15 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 
 <div id="iosHint" style="display:none;margin-top:15px;font-size:14px;color:#555">
 📱 iPhone:<br><br>
-1. Нажмите “Поделиться”<br>
-2. “На экран Домой”
+1. Нажмите “Поделиться” → “На экран Домой”
 </div>
 
 <div id="manualHint" style="display:none;margin-top:15px;font-size:13px;color:#777">
-Если кнопка не появилась — открой меню браузера и выбери “Добавить на главный экран”
+Если кнопка не появилась — открой меню браузера → “Добавить на главный экран”
 </div>
 
 <div id="installedMsg" style="display:none;margin-top:15px;color:green">
-✔ Установлено. Найдите ContentBot на экране телефона
+✔ Приложение установлено
 </div>
 
 </div>
@@ -134,12 +130,14 @@ fbq('track','Purchase');
 }
 </script>
 
+<!-- SW -->
 <script>
 if ('serviceWorker' in navigator) {
 navigator.serviceWorker.register('/service-worker.js');
 }
 </script>
 
+<!-- PWA LOGIC -->
 <script>
 let deferredPrompt;
 
@@ -154,7 +152,7 @@ setTimeout(() => {
   if (installBox) installBox.style.display = 'block';
 }, 1200);
 
-// chrome
+// ловим установку
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
@@ -164,17 +162,30 @@ window.addEventListener('beforeinstallprompt', (e) => {
 installBtn?.addEventListener('click', async () => {
 
   if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const choice = await deferredPrompt.userChoice;
 
-    if (choice.outcome === 'accepted') {
+    deferredPrompt.prompt();
+
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === 'accepted') {
       installedMsg.style.display = 'block';
       installBtn.style.display = 'none';
+    } else {
+      manualHint.style.display = 'block';
     }
+
+    deferredPrompt = null;
 
   } else {
     manualHint.style.display = 'block';
   }
+
+});
+
+// подтверждение установки
+window.addEventListener('appinstalled', () => {
+  installedMsg.style.display = 'block';
+  installBtn.style.display = 'none';
 });
 
 // ios
@@ -191,7 +202,6 @@ if (isIOS() && !isStandalone()) {
   installBtn.style.display = 'none';
 }
 
-// уже установлен
 if (isStandalone()) {
   installedMsg.style.display = 'block';
   installBtn.style.display = 'none';
