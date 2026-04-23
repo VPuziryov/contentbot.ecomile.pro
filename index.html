@@ -50,7 +50,7 @@ button{cursor:pointer}
 <header>Пост за 2 минуты вместо часа</header>
 
 <div class="hero">
-<img src="/images/hero.jpg">
+<img src="/images/hero.jpg" alt="ContentBot">
 </div>
 
 <div class="block">
@@ -75,6 +75,27 @@ button{cursor:pointer}
 style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;border-radius:12px;text-decoration:none;font-weight:bold;">
 Открыть ContentBot
 </a>
+
+<!-- USE NOW -->
+<div style="margin-top:20px;font-size:14px;color:#555;line-height:1.6">
+<b>Что сделать прямо сейчас:</b><br><br>
+1. Открой ContentBot<br>
+2. Вставь тему поста<br>
+3. Получи первый текст за 2 минуты
+</div>
+
+<!-- START PROMPT -->
+<div style="margin-top:20px;background:#fff;padding:16px;border-radius:14px;max-width:520px;margin-left:auto;margin-right:auto;text-align:left">
+<b>Стартовая команда:</b><br><br>
+<span id="starterPrompt">Напиши пост для Instagram на тему: [твоя тема].<br>
+Стиль — уверенный, без воды.<br>
+В конце — мягкий призыв к действию.</span>
+</div>
+
+<button onclick="copyPrompt()"
+style="margin-top:12px;padding:12px 20px;border:none;border-radius:10px;background:#111;color:#fff;">
+Скопировать стартовую команду
+</button>
 
 <!-- PWA -->
 <div id="pwa-install-box" style="display:none;margin-top:30px">
@@ -117,6 +138,21 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 
 </div>
 
+<!-- KEEP USING -->
+<div style="margin-top:20px;font-size:14px;color:#555;line-height:1.6">
+Используй ContentBot сейчас один раз и закрепи его на экране — потом он не потеряется.
+</div>
+
+<!-- PDF SECONDARY -->
+<div style="margin-top:30px">
+<a href="/pdf/contentbot-guide.pdf?v=2">Инструкция</a><br><br>
+<a href="/pdf/contentbot-examples.pdf?v=3">Примеры и разбор</a>
+</div>
+
+<div style="margin-top:20px">
+<a href="https://t.me/VPuziryov">@VPuziryov</a>
+</div>
+
 </div>
 </div>
 
@@ -130,14 +166,22 @@ fbq('track','Purchase');
 }
 </script>
 
-<!-- SW -->
 <script>
 if ('serviceWorker' in navigator) {
 navigator.serviceWorker.register('/service-worker.js');
 }
 </script>
 
-<!-- PWA LOGIC -->
+<script>
+function copyPrompt() {
+  const text = `Напиши пост для Instagram на тему: [твоя тема].
+Стиль — уверенный, без воды.
+В конце — мягкий призыв к действию.`;
+  navigator.clipboard.writeText(text);
+  alert('Стартовая команда скопирована');
+}
+</script>
+
 <script>
 let deferredPrompt;
 
@@ -152,17 +196,16 @@ setTimeout(() => {
   if (installBox) installBox.style.display = 'block';
 }, 1200);
 
-// ловим установку
+// ловим событие установки
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
 });
 
-// кнопка
+// кнопка установки
 installBtn?.addEventListener('click', async () => {
 
   if (deferredPrompt) {
-
     deferredPrompt.prompt();
 
     const { outcome } = await deferredPrompt.userChoice;
@@ -175,20 +218,19 @@ installBtn?.addEventListener('click', async () => {
     }
 
     deferredPrompt = null;
-
   } else {
     manualHint.style.display = 'block';
   }
 
 });
 
-// подтверждение установки
+// подтверждение факта установки
 window.addEventListener('appinstalled', () => {
   installedMsg.style.display = 'block';
   installBtn.style.display = 'none';
 });
 
-// ios
+// iOS
 function isIOS() {
   return /iphone|ipad|ipod/i.test(navigator.userAgent);
 }
