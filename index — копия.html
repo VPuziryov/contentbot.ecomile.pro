@@ -22,11 +22,15 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
 fbq('init', '1403441134581587');
+
 fbq('track', 'PageView');
 
-function trackCheckoutClick(){
-  fbq('track','InitiateCheckout',{value:15,currency:'EUR'});
-}
+fbq('track', 'ViewContent', {
+  value: 15,
+  currency: 'EUR',
+  content_name: 'ContentBot',
+  content_type: 'product'
+});
 </script>
 
 <style>
@@ -68,7 +72,7 @@ button{cursor:pointer}
 </div>
 
 <div class="cta">
-<a href="/go/?v=2" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
+<a href="/go/?v=2">Открыть ContentBot — 15 €</a>
 <small>Разовый платёж · Без подписки<br>Сразу после оплаты — доступ к инструменту<br>Подходит, даже если “не умеешь писать”</small>
 </div>
 
@@ -157,13 +161,13 @@ ContentBot понимает задачу и пишет под неё.<br><br>
 </div>
 
 <div class="cta">
-<a href="/go/?v=2" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
+<a href="/go/?v=2">Открыть ContentBot — 15 €</a>
 </div>
 
 <footer>
 Платёж через Stripe — безопасно<br><br>
 Автор — Виталий Пузырёв<br><br>
-<a href="https://t.me/VPuziryov">@VPuziryov</a>
+<a href="https://t.me/VPuziryov" target="_blank" rel="noopener">@VPuziryov</a>
 </footer>
 
 </div>
@@ -177,32 +181,40 @@ ContentBot понимает задачу и пишет под неё.<br><br>
 
 <p>ContentBot готов. Можно начинать.</p>
 
-<a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0"
+<a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0" target="_blank" rel="noopener"
 style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;border-radius:12px;text-decoration:none;font-weight:bold;">
 Открыть ContentBot
 </a>
 
 <div style="margin-top:10px;font-size:13px;color:#777">
-👉 Открой и вставь тему — первый пост займёт 2 минуты
+👉 Открой и вставь задачу — первый результат за 2 минуты
 </div>
 
 <div style="margin-top:20px;font-size:14px;color:#555;line-height:1.6">
 <b>Что сделать прямо сейчас:</b><br><br>
 1. Открой ContentBot<br>
-2. Вставь тему поста<br>
-3. Получи первый текст за 2 минуты
+2. Вставь задачу<br>
+3. Получи первый результат за 2 минуты
 </div>
 
 <div style="margin-top:20px;background:#fff;padding:16px;border-radius:14px;text-align:left">
-<b>Стартовая команда:</b><br><br>
-<span id="starterPrompt">Напиши пост для Instagram на тему: [твоя тема].<br>
+<b>Пример запроса:</b><br><br>
+
+Можешь написать так:<br><br>
+
+<span id="starterPrompt">
+Напиши пост для Instagram на тему: [твоя тема].<br>
 Стиль — уверенный, без воды.<br>
-В конце — мягкий призыв к действию.</span>
+В конце — мягкий призыв к действию.
+</span>
+
+<br><br>
+или сформулируй задачу своими словами
 </div>
 
 <button onclick="copyPrompt()"
 style="margin-top:12px;padding:12px 20px;border:none;border-radius:10px;background:#111;color:#fff;">
-Скопировать стартовую команду
+Скопировать пример
 </button>
 
 <!-- SELL SERVICES -->
@@ -210,16 +222,14 @@ style="margin-top:12px;padding:12px 20px;border:none;border-radius:10px;backgrou
 
 <b>Не хотите писать сами?</b><br><br>
 
-Я настраиваю:<br>
-• рекламу, которая приводит заявки<br>
-• чат-боты, которые продают<br>
-• воронки, которые работают без вас<br><br>
+Я настраиваю рекламу и воронки,<br>
+которые приводят заявки без “постоянного постинга”.<br><br>
 
-👉 Если хотите такой же результат — напишите мне
+👉 Если хотите такой же результат — напишите
 
 </div>
 
-<a href="https://t.me/VPuziryov"
+<a href="https://t.me/VPuziryov" target="_blank" rel="noopener"
 style="display:inline-block;margin-top:12px;background:#ff5c00;color:#fff;padding:14px 24px;border-radius:12px;text-decoration:none;font-weight:bold;">
 Написать в Telegram
 </a>
@@ -276,7 +286,7 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 </div>
 
 <div style="margin-top:20px">
-<a href="https://t.me/VPuziryov">@VPuziryov</a>
+<a href="https://t.me/VPuziryov" target="_blank" rel="noopener">@VPuziryov</a>
 </div>
 
 </div>
