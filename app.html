@@ -1,107 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ContentBot</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f5f5f5;
-      color: #111;
-      text-align: center;
-      padding: 20px;
-    }
+<title>ContentBot</title>
 
-    .container {
-      max-width: 480px;
-      margin: auto;
-    }
+<style>
+body{
+  margin:0;
+  font-family:system-ui;
+  background:#f5f6fa;
+  text-align:center;
+}
 
-    h1 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-    }
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:20px;
+}
 
-    p {
-      color: #555;
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
+a, button{
+  cursor:pointer;
+}
 
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      margin: 10px 0;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-    }
+.box{
+  margin-top:20px;
+  background:#f1f1f1;
+  padding:16px;
+  border-radius:14px;
+  text-align:left;
+}
 
-    .primary {
-      background: #ff5c00;
-      color: white;
-    }
+.btn{
+  display:inline-block;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  text-decoration:none;
+}
 
-    .secondary {
-      background: #111;
-      color: white;
-    }
+.primary{
+  background:#ff5c00;
+  color:#fff;
+  padding:16px 28px;
+}
 
-    .box {
-      background: #fff;
-      padding: 16px;
-      border-radius: 10px;
-      margin-top: 20px;
-      text-align: left;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
+.secondary{
+  background:#111;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:10px;
+}
 
-    .small {
-      font-size: 0.8rem;
-      color: #777;
-      margin-top: 20px;
-    }
-  </style>
+.small{
+  margin-top:12px;
+  font-size:13px;
+  color:#777;
+}
+
+.note{
+  margin-top:20px;
+  font-size:14px;
+  color:#555;
+}
+</style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>ContentBot</h1>
-  <p>Пост за 2 минуты. Просто вставь тему.</p>
+<h1>ContentBot</h1>
 
-  <!-- ОСНОВНОЕ ДЕЙСТВИЕ -->
-  <a href="https://buy.stripe.com/dRmfZg6e0cdxcWq1pR6Na06" target="_blank" class="btn primary">
-    Открыть ContentBot
-  </a>
+<p>Пост за 2 минуты. Вставь задачу.</p>
 
-  <!-- БЫСТРЫЙ СТАРТ -->
-  <button class="btn secondary" onclick="copyPrompt()">
-    Скопировать стартовую команду
-  </button>
+<a href="https://chatgpt.com/g/g-6843a883f48c81919154dcc41bf9ae73-contentbottm-1-0" target="_blank" rel="noopener" class="btn primary">
+Открыть ContentBot
+</a>
 
-  <!-- ПРИМЕР -->
-  <div class="box">
-    <b>Старт:</b><br><br>
+<br><br>
 
-    Напиши пост для Instagram на тему: [твоя тема].<br>
-    Стиль — уверенный, без воды.<br>
-    В конце — мягкий призыв к действию.
-  </div>
+<button onclick="copyPrompt()" class="secondary">
+Скопировать пример
+</button>
 
-  <!-- ПОДСКАЗКА -->
-  <div class="small">
-    Вставь тему → получи пост → опубликуй
-  </div>
+<div class="box">
+
+<b>Пример запроса:</b><br><br>
+
+Можешь написать так:<br><br>
+
+<span id="starterPrompt">
+Напиши пост для Instagram на тему: [твоя тема].<br>
+Стиль — уверенный, без воды.<br>
+В конце — мягкий призыв к действию.
+</span>
+
+<br><br>
+или сформулируй задачу своими словами
+
+</div>
+
+<div class="small">
+Вставь задачу → получи текст → опубликуй
+</div>
+
+<div class="note">
+👉 Нужна помощь с рекламой или воронкой — напишите мне в Telegram
+</div>
+
+<div style="margin-top:6px;font-size:12px;color:#888;">
+Виталий Пузырёв
+</div>
+
+<a href="https://t.me/VPuziryov" target="_blank" rel="noopener" class="btn primary" style="margin-top:10px;">
+Написать в Telegram
+</a>
 
 </div>
 
@@ -112,7 +128,7 @@ function copyPrompt() {
 В конце — мягкий призыв к действию.`;
 
   navigator.clipboard.writeText(text);
-  alert("Скопировано");
+  alert('Пример скопирован');
 }
 </script>
 
