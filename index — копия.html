@@ -49,7 +49,7 @@ button{cursor:pointer}
 
 <div id="landing">
 
-<header>Пост за 2 минуты вместо часа</header>
+<header>Пишешь тему — получаешь пост, который читают и на который реагируют</header>
 
 <div class="hero">
 <img src="/images/hero.jpg" alt="ContentBot">
@@ -57,25 +57,53 @@ button{cursor:pointer}
 
 <div class="block">
 <div class="box" style="text-align:center;">
-Просто напиши тему — ContentBot сделает текст<br><br>
-Открывается как отдельный инструмент — можно добавить на экран телефона
+Ты пишешь тему — получаешь пост, который:
+
+цепляет<br>
+держит внимание<br>
+и ведёт к действию<br><br>
+
+Не “текст ради текста” — а текст под конкретную задачу
 </div>
 </div>
 
 <div class="cta">
 <a href="/go/?v=2" onclick="trackCheckoutClick()">Открыть ContentBot — 15 €</a>
-<small>Разовый платёж · Без подписки<br>Доступ откроется сразу после оплаты</small>
+<small>Разовый платёж · Без подписки<br>Сразу после оплаты — доступ к инструменту<br>Подходит, даже если “не умеешь писать”</small>
 </div>
 
 <div class="block">
 <strong>Что ты получаешь</strong>
 <div class="box">
-Ты просто пишешь тему — получаешь готовый пост<br><br>
-• доступ к ContentBot<br>
-• генерация постов через GPT<br>
-• структура поста (заголовок → смысл → CTA)<br>
-• примеры<br>
-• инструкция
+Ты просто пишешь тему — получаешь пост с готовой логикой:<br><br>
+
+• зацепить внимание<br>
+• задеть проблему<br>
+• показать решение<br>
+• подвести к действию<br><br>
+
+ContentBot не просто “генерирует текст”<br>
+Он собирает пост по структуре, которая работает
+</div>
+</div>
+
+<div class="block">
+<strong>Можно не только посты</strong>
+
+<div class="box">
+ContentBot понимает задачу и пишет под неё.<br><br>
+
+Ты можешь запросить:<br><br>
+
+• текст для рекламы<br>
+• описание продукта<br>
+• сценарий Reels<br>
+• письмо или сообщение клиенту<br>
+• сторителлинг под личный бренд<br>
+и даже длинные тексты — вплоть до гайдов или книги<br><br>
+
+Главное — задать цель.<br>
+Остальное он соберёт сам
 </div>
 </div>
 
@@ -83,7 +111,7 @@ button{cursor:pointer}
 <strong>Как это работает</strong>
 <div class="box">
 1. Пишешь тему<br>
-2. Получаешь текст<br>
+2. Получаешь готовый пост<br>
 3. Публикуешь
 </div>
 </div>
@@ -93,26 +121,37 @@ button{cursor:pointer}
 </div>
 
 <div class="block">
-<strong>Вот такие тексты он пишет:</strong>
+<strong>Вот как это выглядит на практике:</strong><br>
+Ты пишешь задачу — получаешь текст под неё<br>
 
 <div class="box">
-<b>ПЕРВЫЕ КЛИЕНТЫ — страшно, стыдно, НО МОЖНО!</b><br><br>
-Я просто написал, чем могу быть полезен.<br>
-Без сайта. Без упаковки.<br><br>
-Через неделю — 3 заявки.<br>
-Через месяц — очередь.<br><br>
-Хочешь клиентов?<br>
-Скажи миру, чем ты полезен.
+<b>Эксперт / маркетолог</b><br><br>
+
+«Ты тоже постишь “полезный контент”, а в ответ — тишина?<br>
+Плохая новость: дело не в алгоритмах.<br>
+Хорошая: твои тексты просто не трогают.<br><br>
+
+Пока ты объясняешь — другие вызывают эмоции и забирают клиентов»
 </div>
 
 <div class="box">
-<b>НЕ СМЕЙ ПРОДАВАТЬ!</b><br><br>
-Именно так звучит страх.<br><br>
-Ты откладываешь пост.<br>
-Боишься “впарить”.<br><br>
-Но правда простая:<br><br>
-продажи — это забота.<br><br>
-Когда ты объясняешь — люди сами хотят купить.
+<b>Психолог / эксперт</b><br><br>
+
+«Ты не устал быть “сильным”?<br><br>
+
+Тем самым, который всегда держится и “сам разберётся”?<br><br>
+
+Я работаю с теми, кто устал тянуть всё в одиночку»
+</div>
+
+<div class="box">
+<b>Фриланс / услуги</b><br><br>
+
+«Клиенты, которые просят “сделать покрасивее” — это не клиенты.<br>
+Это лотерея без выигрыша.<br><br>
+
+Настоящие приходят за решением.<br>
+И выбирают того, кто умеет объяснить ценность»
 </div>
 
 </div>
@@ -247,15 +286,25 @@ style="padding:14px 24px;border:none;border-radius:12px;background:#111;color:#f
 const isPaid = window.location.search.includes('paid=1');
 
 if (isPaid) {
-  document.getElementById('landing').style.display='none';
-  document.getElementById('paid').style.display='block';
-  fbq('track','Purchase');
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('paid').style.display = 'block';
+
+  if (!localStorage.getItem('purchaseTracked_ContentBot')) {
+    fbq('track', 'Purchase', {
+      value: 15,
+      currency: 'EUR',
+      content_name: 'ContentBot',
+      content_type: 'product'
+    });
+
+    localStorage.setItem('purchaseTracked_ContentBot', '1');
+  }
 }
 </script>
 
 <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js');
+  navigator.serviceWorker.register('/sw.js');
 }
 </script>
 

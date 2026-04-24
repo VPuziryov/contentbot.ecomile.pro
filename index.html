@@ -194,15 +194,23 @@ style="display:inline-block;background:#ff5c00;color:#fff;padding:16px 28px;bord
 </div>
 
 <div style="margin-top:20px;background:#fff;padding:16px;border-radius:14px;text-align:left">
-<b>Стартовая команда:</b><br><br>
-<span id="starterPrompt">Напиши пост для Instagram на тему: [твоя тема].<br>
+<b>Пример запроса:</b><br><br>
+
+Можешь написать так:<br><br>
+
+<span id="starterPrompt">
+Напиши пост для Instagram на тему: [твоя тема].<br>
 Стиль — уверенный, без воды.<br>
-В конце — мягкий призыв к действию.</span>
+В конце — мягкий призыв к действию.
+</span>
+
+<br><br>
+или сформулируй задачу своими словами
 </div>
 
 <button onclick="copyPrompt()"
 style="margin-top:12px;padding:12px 20px;border:none;border-radius:10px;background:#111;color:#fff;">
-Скопировать стартовую команду
+Скопировать пример
 </button>
 
 <!-- SELL SERVICES -->
@@ -314,7 +322,7 @@ function copyPrompt() {
 Стиль — уверенный, без воды.
 В конце — мягкий призыв к действию.`;
   navigator.clipboard.writeText(text);
-  alert('Стартовая команда скопирована');
+  alert('Пример скопирован');
 }
 </script>
 
