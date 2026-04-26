@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Переход к оплате</title>
+
+<title>Переход к оплате — ContentBot</title>
 
 <!-- Pixel -->
 <script>
@@ -18,52 +20,113 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 
 fbq('init', '1403441134581587');
 fbq('track', 'PageView');
-
-fbq('track','InitiateCheckout',{
-  value:15,
-  currency:'EUR',
-  content_name:'ContentBot',
-  content_type:'product'
-});
-</script>
-
-<script>
-window.onload = function() {
-  setTimeout(function() {
-    window.location.href = "https://buy.stripe.com/dRmfZg6e0cdxcWq1pR6Na06";
-  }, 800);
-};
 </script>
 
 <style>
 body {
-  font-family: system-ui;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-align: center;
-  padding: 40px;
   background: #f5f6fa;
+  color: #111;
 }
-a {
+
+.wrapper {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 36px 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 24px 20px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+}
+
+h1 {
+  font-size: 1.7rem;
+  margin: 0 0 12px;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.list {
+  text-align: left;
+  margin: 22px 0;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 18px 0 8px;
+}
+
+a.button {
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 16px;
   background: #ff5c00;
   color: #fff;
-  padding: 14px 24px;
-  border-radius: 10px;
+  padding: 16px 28px;
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.small {
+  margin-top: 14px;
+  font-size: .9rem;
+  color: #777;
 }
 </style>
-
 </head>
+
 <body>
 
-<h2>Переход к оплате…</h2>
+<div class="wrapper">
+  <div class="card">
 
-<p>Если не открылось — нажмите ниже</p>
+    <h1>ContentBot готов к запуску</h1>
 
-<a href="https://buy.stripe.com/dRmfZg6e0cdxcWq1pR6Na06">
-Перейти к оплате
-</a>
+    <p>
+      После оплаты вы сразу получите доступ к инструменту.
+    </p>
+
+    <div class="list">
+      ✔ доступ к ContentBot<br>
+      ✔ готовый пример запроса<br>
+      ✔ первый пост за 2 минуты<br>
+      ✔ разовый платёж без подписки
+    </div>
+
+    <div class="price">15 €</div>
+
+    <a
+      class="button"
+      href="https://buy.stripe.com/dRmfZg6e0cdxcWq1pR6Na06"
+      onclick="fbq('track','InitiateCheckout',{
+        value:15,
+        currency:'EUR',
+        content_name:'ContentBot',
+        content_type:'product'
+      });"
+    >
+      Перейти к оплате
+    </a>
+
+    <div class="small">
+      Безопасная оплата через Stripe
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
